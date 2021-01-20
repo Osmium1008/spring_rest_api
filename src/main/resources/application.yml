@@ -3,7 +3,8 @@ spring:
     driver-class-name: org.h2.Driver
     url: jdbc:h2:/home/osmium_1008/Documents/a.db
     username: rest_api
-    initialization-mode: embedded
+    initialization-mode: always
+    schema: classpath:schema.sql
   h2:
     console:
       enabled: true
