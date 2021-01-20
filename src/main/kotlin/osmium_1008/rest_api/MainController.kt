@@ -8,8 +8,14 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 class MainController(val mainRepository: MainRepository) {
     @PostMapping("/postData")
-    fun postData(@RequestBody data:Data){
+    fun postData(@RequestBody data: Data): Int {
+        val ret = mainRepository.isMax(data)
         mainRepository.push(data)
+        return if (ret) {
+            1
+        } else {
+            0
+        }
     }
 
     @GetMapping("/getData")
